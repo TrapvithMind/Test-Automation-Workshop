@@ -1,0 +1,22 @@
+{
+  "name": "test-automation-workshop",
+  "version": "1.0.0",
+  "description": "A Change",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TrapvithMind/Test-Automation-Workshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TrapvithMind/Test-Automation-Workshop/issues"
+  },
+  "homepage": "https://github.com/TrapvithMind/Test-Automation-Workshop#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.13.1"
+  }
+}
