@@ -54,7 +54,7 @@ const DivNumbers1 = [64, 5, 2];
 const DivNumbers2 = [1, 6, 17];
     DivNumbers1.forEach(n1 => {
         DivNumbers2.forEach(n2 => {
-            test(`Divide ${n1} by ${n2} to be ${n1/n2}`, async () => {
+            test.only(`Divide ${n1} by ${n2} to be ${n1/n2}`, async () => {
                 await calculator.selectOperation('Divide');
                 await calculator.calculate(n1, n2);
                 const answer = await page.inputValue('#numberAnswerField');
@@ -74,7 +74,7 @@ const Conc2 = ['2', 'E', 'OOOOO'];
             });
         })
     });
-test(`Test Integer only`, async () => {
+test.only(`Test Integer only`, async () => {
     await calculator.selectOperation('Divide');
     await calculator.integerOnly(true);
     await calculator.calculate(5, 2);
@@ -85,7 +85,7 @@ test(`Test Integer only is unchecked on load`, async () => {
     const isChecked = await page.isChecked('#integerSelect');
     expect(isChecked).toBeFalsy();
     });
-test('Test error in input field 1', async () => {
+test.only('Test error in input field 1', async () => {
     await calculator.calculate('a', 2);
     const errormsg = await page.textContent('#errorMsgField');
     expect(errormsg).toBe('Number 1 is not a number');
@@ -101,13 +101,13 @@ test('Test clear', async () => {
     const answer = await page.inputValue('#numberAnswerField');
     expect(answer).toBe('');
     });
-test(`Divide by zero`, async () => {
+test.only(`Divide by zero`, async () => {
         await calculator.selectOperation('Divide');
         await calculator.calculate(5, 0);
         const errormsg = await page.textContent('#errorMsgField');
     expect(errormsg).toBe('Divide by zero error!');
     });
-test(`Clear button available on load`, async () => {
+test.only(`Clear button available on load`, async () => {
     const isChecked = await page.isEnabled('#clearButton');
     expect(isChecked).toBeTruthy();
     });
