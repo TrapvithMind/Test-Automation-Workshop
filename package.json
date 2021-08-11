@@ -18,5 +18,8 @@
   "homepage": "https://github.com/TrapvithMind/Test-Automation-Workshop#readme",
   "devDependencies": {
     "@playwright/test": "^1.13.1"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
 }
