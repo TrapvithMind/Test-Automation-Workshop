@@ -5,7 +5,7 @@ test.describe('', () => {
     let page;
 test.beforeAll(async ({ browser }) => {
     page = await browser.newPage();
-    calculator = new calculatorPage(page, '6');
+    calculator = new calculatorPage(page, 'Prototype');
 }); 
 
 test.beforeEach(async () => {
@@ -29,7 +29,7 @@ const AddNumbers2 = [2, 3, 11];
 const SubNumbers1 = [11, 9, 7];
 const SubNumbers2 = [2, 9, 11];
     SubNumbers1.forEach(n1 => {
-        SubNumbers2.forEach(n2 => {
+        SubNumbers2.forEach(n2 => { 
             test(`Subtract ${n2} from ${n1} to be ${n1-n2}`, async () => {
                 await calculator.selectOperation('Subtract');
                 await calculator.calculate(n1, n2);
@@ -54,7 +54,7 @@ const DivNumbers1 = [64, 5, 2];
 const DivNumbers2 = [1, 6, 17];
     DivNumbers1.forEach(n1 => {
         DivNumbers2.forEach(n2 => {
-            test.only(`Divide ${n1} by ${n2} to be ${n1/n2}`, async () => {
+            test(`Divide ${n1} by ${n2} to be ${n1/n2}`, async () => {
                 await calculator.selectOperation('Divide');
                 await calculator.calculate(n1, n2);
                 const answer = await page.inputValue('#numberAnswerField');
@@ -66,7 +66,7 @@ const Conc1 = ['Dab', 'AAAAAA', '1'];
 const Conc2 = ['2', 'E', 'OOOOO'];
     Conc1.forEach(c1 => {
         Conc2.forEach(c2 => {
-            test(`Concatenate ${c1} and ${c2} to be ${c1+c2}`, async () => {
+            test.only(`Concatenate ${c1} and ${c2} to be ${c1+c2}`, async () => {
                 await calculator.selectOperation('Concatenate');
                 await calculator.calculate(c1, c2);
                 const answer = await page.inputValue('#numberAnswerField');

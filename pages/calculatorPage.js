@@ -16,9 +16,14 @@ exports.calculatorPage = class duckpage {
     }
     async calculate(value1, value2)
     {
-        await this.page.fill('#number1Field', String(value1));
-        await this.page.fill('#number2Field', String(value2));
-        await this.page.click('#calculateButton');
+        const button1Enabled = await this.page.isEnabled('#number1Field');
+        const button2Enabled = await this.page.isEnabled('#number2Field');
+        if(button1Enabled && button2Enabled)
+        {
+            await this.page.fill('#number1Field', String(value1));
+            await this.page.fill('#number2Field', String(value2));
+            await this.page.click('#calculateButton');
+        }
         //await this.page.waitForSelector('#numberAnswerField', {visible: false});
         //await this.page.waitForSelector('#numberAnswerField', {visible: true});
     }
